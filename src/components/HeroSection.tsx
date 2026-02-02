@@ -43,6 +43,20 @@ export const HeroSection = () => {
             <p className="text-sm font-semibold text-foreground">24 Horas - Todos os dias</p>
           </div>
         </div>
+
+        {/* Categories */}
+        <div className="mt-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["ESCAPE TSUNAMI FOR BRAINROTS", "STEAL A BRAINROT", "PLANTS VS BRAINROTS"].map((category) => (
+              <span 
+                key={category} 
+                className="px-4 py-2 rounded-full bg-primary/5 border border-primary/20 text-xs font-bold text-primary hover:bg-primary/10 transition-colors cursor-default backdrop-blur-sm"
+              >
+                {category}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

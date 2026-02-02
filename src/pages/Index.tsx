@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { ProductGrid } from "@/components/ProductGrid";
+import { ProductsSection } from "@/components/ProductsSection";
 import { SocialProof } from "@/components/SocialProof";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FAQSection } from "@/components/FAQSection";
@@ -36,7 +36,7 @@ const Index = () => {
       {/* Main Content */}
       <main>
         <HeroSection />
-        <ProductGrid onAddToCart={handleAddToCart} />
+        <ProductsSection onAddToCart={handleAddToCart} />
         <SocialProof />
         <ReviewsCarousel />
         <FAQSection />
