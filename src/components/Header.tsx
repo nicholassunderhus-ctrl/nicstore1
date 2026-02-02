@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Search, ShoppingCart, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Search, ShoppingCart, Menu, X, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SocialLinks } from "./SocialLinks";
 import { LoginModal } from "./LoginModal";
+import { supabase } from "@/lib/supabase";
 
 interface HeaderProps {
   cartCount: number;
@@ -13,6 +14,25 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    // Verifica se já tem alguém logado ao carregar a página
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Fica escutando quando alguém entra ou sai da conta
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+  };
 
   return (
     <>
@@ -56,9 +76,21 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               
               <div className="h-6 w-px bg-border mx-2" />
               
-              <Button variant="neonOutline" size="sm" onClick={() => setIsLoginOpen(true)}>
-                Entrar
-              </Button>
+              {user ? (
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 text-sm font-medium">
+                    <User className="h-4 w-4 text-primary" />
+                    <span className="hidden lg:inline-block max-w-[150px] truncate">{user.email}</span>
+                  </div>
+                  <Button variant="ghost" size="iconSm" onClick={handleLogout} title="Sair">
+                    <LogOut className="h-4 w-4 text-muted-foreground hover:text-destructive" />
+                  </Button>
+                </div>
+              ) : (
+                <Button variant="neonOutline" size="sm" onClick={() => setIsLoginOpen(true)}>
+                  Entrar
+                </Button>
+              )}
               
               <Button variant="glass" size="icon" onClick={onCartClick} className="relative">
                 <ShoppingCart className="h-5 w-5" />
@@ -111,16 +143,26 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           <div className="md:hidden border-t border-border bg-card/95 backdrop-blur-md animate-slide-in-bottom">
             <div className="container mx-auto px-4 py-4 space-y-4">
               <SocialLinks />
-              <Button 
-                variant="neon" 
-                className="w-full" 
-                onClick={() => {
-                  setIsLoginOpen(true);
-                  setIsMenuOpen(false);
-                }}
-              >
-                Entrar
-              </Button>
+              
+              {user ? (
+                <div className="space-y-3">
+                  <p className="text-sm text-center text-muted-foreground">{user.email}</p>
+                  <Button variant="outline" className="w-full gap-2" onClick={handleLogout}>
+                    <LogOut className="h-4 w-4" /> Sair
+                  </Button>
+                </div>
+              ) : (
+                <Button 
+                  variant="neon" 
+                  className="w-full" 
+                  onClick={() => {
+                    setIsLoginOpen(true);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  Entrar
+                </Button>
+              )}
             </div>
           </div>
         )}

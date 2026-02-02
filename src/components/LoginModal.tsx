@@ -23,15 +23,22 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
     try {
       if (isSignUp) {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
         });
         if (error) throw error;
-        toast.success("Conta criada com sucesso!", {
-          description: "Verifique seu e-mail para confirmar o cadastro.",
-        });
-        onClose();
+
+        // Se vier uma sessão, o login foi automático (Email Confirmation desligado)
+        if (data.session) {
+          toast.success("Conta criada e login realizado!");
+          onClose();
+        } else {
+          toast.success("Conta criada com sucesso!", {
+            description: "Verifique seu e-mail para confirmar o cadastro.",
+          });
+          onClose();
+        }
       } else {
         const { error } = await supabase.auth.signInWithPassword({
           email,
