@@ -22,9 +22,8 @@ const YouTubeIcon = () => (
 
 export const SocialLinks = () => {
   const links = [
-    { icon: TikTokIcon, href: "#", label: "TikTok" },
-    { icon: DiscordIcon, href: "#", label: "Discord" },
-    { icon: YouTubeIcon, href: "#", label: "YouTube" },
+    { icon: TikTokIcon, href: "https://www.tiktok.com/@eonictv2", label: "TikTok" },
+    { icon: YouTubeIcon, href: "https://www.youtube.com/@Elfuuu", label: "YouTube" },
   ];
 
   return (

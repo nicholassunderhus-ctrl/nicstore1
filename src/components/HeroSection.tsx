@@ -1,4 +1,5 @@
 import { Clock } from "lucide-react";
+import { CategoryGrid } from "./CategoryGrid";
 
 export const HeroSection = () => {
   return (
@@ -42,6 +43,11 @@ export const HeroSection = () => {
             <p className="text-xs text-muted-foreground uppercase tracking-wider">Horário de Atendimento</p>
             <p className="text-sm font-semibold text-foreground">24 Horas - Todos os dias</p>
           </div>
+        </div>
+
+        {/* Categories */}
+        <div className="w-full max-w-7xl mt-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <CategoryGrid />
         </div>
       </div>
     </section>

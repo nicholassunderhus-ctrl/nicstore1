@@ -18,19 +18,6 @@ const categories = [
 
 export const CategoryGrid = () => {
   return (
-    <section className="py-16 px-4">
-      <div className="container mx-auto max-w-7xl">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            NOSSAS <span className="text-primary">CATEGORIAS</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Explore nossos universos de jogos e encontre o que procura
-          </p>
-        </div>
-
-        {/* Category Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
             <div 
@@ -61,7 +48,5 @@ export const CategoryGrid = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
   );
 };

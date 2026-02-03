@@ -38,17 +38,12 @@ export const Footer = () => {
             </p>
             <div className="flex gap-3">
               <Button variant="glass" size="icon" asChild>
-                <a href="#" aria-label="Discord">
-                  <DiscordIcon />
-                </a>
-              </Button>
-              <Button variant="glass" size="icon" asChild>
-                <a href="#" aria-label="TikTok">
+                <a href="https://www.tiktok.com/@eonictv2" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                   <TikTokIcon />
                 </a>
               </Button>
               <Button variant="glass" size="icon" asChild>
-                <a href="#" aria-label="YouTube">
+                <a href="https://www.youtube.com/@Elfuuu" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                   <YouTubeIcon />
                 </a>
               </Button>
@@ -92,15 +87,6 @@ export const Footer = () => {
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <DiscordIcon />
-                  Discord
                 </a>
               </li>
             </ul>

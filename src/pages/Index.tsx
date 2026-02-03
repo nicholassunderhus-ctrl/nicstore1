@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { CategoryGrid } from "@/components/CategoryGrid";
 import { SocialProof } from "@/components/SocialProof";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FAQSection } from "@/components/FAQSection";
@@ -36,7 +35,6 @@ const Index = () => {
       {/* Main Content */}
       <main>
         <HeroSection />
-        <CategoryGrid />
         <SocialProof />
         <ReviewsCarousel />
         <FAQSection />
