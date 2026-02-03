@@ -4,7 +4,7 @@ import { Users, Shield, Zap } from "lucide-react";
 const stats = [
   { icon: Users, value: 3000, label: "Clientes satisfeitos", suffix: "+" },
   { icon: Shield, value: 100, label: "Transações seguras", suffix: "%" },
-  { icon: Zap, label: "Entrega Rápida" },
+  { icon: Zap, label: "Entrega em 15 Min" },
 ];
 
 const AnimatedCounter = ({ end, suffix }: { end: number; suffix: string }) => {
@@ -83,7 +83,7 @@ export const SocialProof = () => {
               {'value' in stat && typeof stat.value === 'number' ? (
                 <AnimatedCounter end={stat.value} suffix={stat.suffix || ''} />
               ) : (
-                <div className="text-4xl sm:text-5xl font-black text-primary">Rápida</div>
+                <div className="text-4xl sm:text-5xl font-black text-primary">15 Min</div>
               )}
               <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
             </div>

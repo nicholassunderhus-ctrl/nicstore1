@@ -31,9 +31,9 @@ export const HeroSection = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           Sua loja de itens digitais com os <span className="text-primary">melhores preços</span> e
-          <span className="text-secondary"> entrega rápida</span>
+          <span className="text-green-500"> entrega rápida</span>
         </p>
 
         {/* Operating Hours */}
@@ -46,7 +46,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Categories */}
-        <div className="w-full max-w-7xl mt-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <div className="w-full max-w-7xl mt-24 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <CategoryGrid />
         </div>
       </div>
