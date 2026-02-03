@@ -40,8 +40,8 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
         {/* Announcement Bar */}
         <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-secondary/20 py-2 px-4 text-center">
           <p className="text-xs sm:text-sm font-medium">
-            🎮 <span className="text-primary">Sorteios diários</span> no nosso Discord! 
-            <span className="ml-2 text-muted-foreground">Entre agora e participe</span>
+            🎮 <span className="text-primary">Sorteios diários</span> na nossa Live! 
+            <span className="ml-2 text-muted-foreground">Participe e ganhe</span>
           </p>
         </div>
 

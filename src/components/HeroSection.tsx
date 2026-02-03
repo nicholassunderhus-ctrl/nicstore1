@@ -31,8 +31,8 @@ export const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          Sua loja de itens digitais com os <span className="text-primary">melhores preços</span> e 
-          <span className="text-secondary"> entrega instantânea</span>
+          Sua loja de itens digitais com os <span className="text-primary">melhores preços</span> e
+          <span className="text-secondary"> entrega rápida</span>
         </p>
 
         {/* Operating Hours */}
@@ -41,20 +41,6 @@ export const HeroSection = () => {
           <div className="text-left">
             <p className="text-xs text-muted-foreground uppercase tracking-wider">Horário de Atendimento</p>
             <p className="text-sm font-semibold text-foreground">24 Horas - Todos os dias</p>
-          </div>
-        </div>
-
-        {/* Categories */}
-        <div className="mt-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <div className="flex flex-wrap justify-center gap-3">
-            {["ESCAPE TSUNAMI FOR BRAINROTS", "STEAL A BRAINROT", "PLANTS VS BRAINROTS"].map((category) => (
-              <span 
-                key={category} 
-                className="px-4 py-2 rounded-full bg-primary/5 border border-primary/20 text-xs font-bold text-primary hover:bg-primary/10 transition-colors cursor-default backdrop-blur-sm"
-              >
-                {category}
-              </span>
-            ))}
           </div>
         </div>
       </div>

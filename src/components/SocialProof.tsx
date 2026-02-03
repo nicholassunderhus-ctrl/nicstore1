@@ -1,11 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { Users, Star, Shield, Zap } from "lucide-react";
+import { Users, Shield, Zap } from "lucide-react";
 
 const stats = [
-  { icon: Users, value: 10000, label: "Clientes satisfeitos", suffix: "+" },
-  { icon: Star, value: 50000, label: "Avaliações positivas", suffix: "+" },
+  { icon: Users, value: 3000, label: "Clientes satisfeitos", suffix: "+" },
   { icon: Shield, value: 100, label: "Transações seguras", suffix: "%" },
-  { icon: Zap, value: 5, label: "Entrega em minutos", suffix: " min" },
+  { icon: Zap, label: "Entrega Rápida" },
 ];
 
 const AnimatedCounter = ({ end, suffix }: { end: number; suffix: string }) => {
@@ -71,7 +70,7 @@ export const SocialProof = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {stats.map((stat, index) => (
             <div 
               key={stat.label}
@@ -81,7 +80,11 @@ export const SocialProof = () => {
               <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-xl mb-4">
                 <stat.icon className="h-7 w-7 text-primary" />
               </div>
-              <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+              {'value' in stat && typeof stat.value === 'number' ? (
+                <AnimatedCounter end={stat.value} suffix={stat.suffix || ''} />
+              ) : (
+                <div className="text-4xl sm:text-5xl font-black text-primary">Rápida</div>
+              )}
               <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
             </div>
           ))}
