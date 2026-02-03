@@ -49,8 +49,17 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
         onClose();
       }
     } catch (error: any) {
+      let errorMessage = error.message || "Ocorreu um erro ao tentar entrar.";
+
+      // Tradução de erros comuns do Supabase
+      if (errorMessage.includes("User already registered")) {
+        errorMessage = "Este e-mail já está cadastrado. Clique em 'Fazer login' abaixo do botão.";
+      } else if (errorMessage.includes("Invalid login credentials")) {
+        errorMessage = "E-mail ou senha incorretos.";
+      }
+
       toast.error("Erro na autenticação", {
-        description: error.message || "Ocorreu um erro ao tentar entrar.",
+        description: errorMessage,
       });
     } finally {
       setLoading(false);
