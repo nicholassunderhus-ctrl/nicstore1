@@ -4,7 +4,7 @@ import { Users, Shield, Zap } from "lucide-react";
 const stats = [
   { icon: Users, value: 3000, label: "Clientes satisfeitos", suffix: "+" },
   { icon: Shield, value: 100, label: "Transações seguras", suffix: "%" },
-  { icon: Zap, label: "Entrega em 15 Min" },
+  { icon: Zap, label: "Entrega Rápida" },
 ];
 
 const AnimatedCounter = ({ end, suffix }: { end: number; suffix: string }) => {
